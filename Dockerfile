@@ -26,6 +26,7 @@ RUN pip install --no-cache-dir streamlit requests pydub PyPDF2 pymupdf
 RUN pip install --no-cache-dir imageio-ffmpeg ffmpeg-python fastapi uvicorn jinja2
 RUN pip install --no-cache-dir pillow pytesseract pdf2image
 RUN pip install --no-cache-dir "piper-tts[onnx,espeak]"
+RUN pip install --no-cache-dir "starlette==0.46.0"
 
 # Copy app
 COPY . .
