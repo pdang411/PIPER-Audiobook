@@ -50,8 +50,8 @@ import io
 # OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 # client = OpenAI(api_key=OPENROUTER_API_KEY, base_url="https://openrouter.ai/api/v1")
 
-TTS_BASE_URL = os.getenv("TTS_BASE_URL", "http://piper:5000")
-LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://192.168.1.19:11434")
+TTS_BASE_URL = os.getenv("TTS_BASE_URL", "http://localhost:5000")
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://localhost:11434")
 LLM_MODEL = os.getenv("LLM_MODEL", "llama3")
 
 TTS_MAX_CHARS = int(os.getenv("TTS_MAX_CHARS", "2000"))

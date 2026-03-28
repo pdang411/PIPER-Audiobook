@@ -274,6 +274,30 @@ async def audio_speech(req: SynthesizeRequest) -> Response:
     return await synthesize(req)
 
 
+def run_dual_server():
+    import threading
+    import uvicorn
+
+    def run_piper():
+        uvicorn.run(app, host=HOST, port=PORT, timeout_keep_alive=300)
+
+    piper_thread = threading.Thread(target=run_piper, daemon=True)
+    piper_thread.start()
+
+    import streamlit.web.cli as stcli
+    import sys
+
+    sys.argv = [
+        "streamlit",
+        "run",
+        "app.py",
+        "--server.address=0.0.0.0",
+        "--server.port=8501",
+        "--server.headless=true",
+    ]
+    stcli.main()
+
+
 if __name__ == "__main__":
     import uvicorn
 
